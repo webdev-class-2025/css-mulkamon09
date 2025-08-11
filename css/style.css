@@ -1,1 +1,247 @@
+/* Базовые стили и переменные */
+:root {
+  --real-white: #ffffff;
+  --real-blue: #00529f;
+  --real-gold: #febc11;
+}
 
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Шапка с анимацией */
+header {
+  background: linear-gradient(135deg, var(--real-blue) 0%, #003366 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+  animation: slideDown 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--real-gold);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+/* Навигация с эффектами */
+nav {
+  background-color: var(--real-white);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: var(--real-blue);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--real-gold);
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--real-blue);
+  background-color: rgba(0, 82, 159, 0.1);
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Основное содержимое */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  color: var(--real-blue);
+  border-bottom: 2px solid var(--real-gold);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+/* Изображение с анимацией */
+figure {
+  margin: 1.5rem 0;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.5s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+}
+
+/* Список игроков с анимацией */
+ol {
+  padding-left: 1.5rem;
+}
+
+ol li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+ol li:hover {
+  background-color: rgba(0, 82, 159, 0.05);
+  border-left: 3px solid var(--real-gold);
+  transform: translateX(5px);
+}
+
+/* Форма с анимацией */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--real-blue);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--real-blue);
+  box-shadow: 0 0 0 3px rgba(0, 82, 159, 0.2);
+  outline: none;
+}
+
+button {
+  background-color: var(--real-blue);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #003366;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Подвал */
+footer {
+  background-color: var(--real-blue);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: var(--real-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
